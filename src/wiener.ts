@@ -1,13 +1,23 @@
+import normal from './normal';
 import {cumsum} from './utils';
 
-const wiener = (n: number = 100) => {
-  let increments: number[] = new Array(n).fill(0);
+const norm = new normal();
 
-  for (let index = 1; index < n; index++) {
-    increments[index] = increments[index] + Math.random();
+/**
+ *
+ * @param n {number}
+ * @param T {number}
+ * @returns {Record<string, number[]>}
+ */
+const wiener = (n: number = 100, T: number = 1): Record<string, number[]> => {
+  const dt = T / n;
+  let dW: number[] = new Array(n - 1).fill(0);
+
+  for (let index = 0; index < n - 1; index++) {
+    dW[index] = Math.sqrt(dt) * norm.boxMuller();
   }
 
-  return {increments, path: cumsum(increments)};
+  return {dW, path: cumsum(dW)};
 };
 
 export default wiener;
