@@ -2,7 +2,7 @@
   "name": "@dancixx/stochastic.js",
   "description": "",
   "authors": "Daniel Boros",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "main": "index.ts",
   "author": "Daniel Boros",
   "scripts": {},
