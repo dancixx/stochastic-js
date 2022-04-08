@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn publish --tag beta
+  /usr/local/bin/node /usr/local/bin/yarn publish
 
 PATH: 
   /Users/danixx/opt/miniconda3/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Apple/usr/bin:/Users/danixx/opt/miniconda3/bin:/opt/homebrew/bin:/opt/homebrew/sbin
@@ -14,8 +14,8 @@ Platform:
   darwin arm64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/-/user/org.couchdb.user:danixx: Auth rate limited
-      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:67038:18)
+  Error: https://npm.pkg.github.com/-/user/org.couchdb.user:danixx: Error authenticating user: Requires authentication
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:67029:18)
       at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140883:22)
       at Request.emit (node:events:390:28)
       at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141855:10)
@@ -28,10 +28,10 @@ Trace:
 
 npm manifest: 
   {
-    "name": "stochastic.js",
+    "name": "@dancixx/stochastic.js",
     "description": "",
     "authors": "Daniel Boros",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "main": "index.ts",
     "dependencies": {},
     "author": "Daniel Boros",
@@ -39,12 +39,15 @@ npm manifest:
     "private": false,
     "repository": {
       "type": "git",
-      "url": "https://github.com/dancixx/stochastic-js"
+      "url": "https://github.com/dancixx/stochastic-js.git"
     },
     "bugs": {
       "url": "https://github.com/dancixx/stochastic-js/issues"
     },
     "homepage": "https://github.com/dancixx/stochastic-js",
+    "publishConfig": {
+      "registry": "https://npm.pkg.github.com/"
+    },
     "devDependencies": {
       "ts-node": "^10.7.0",
       "typescript": "^4.6.3"
