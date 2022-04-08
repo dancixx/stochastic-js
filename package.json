@@ -2,10 +2,10 @@
   "name": "@dancixx/stochastic.js",
   "description": "",
   "authors": "Daniel Boros",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "main": "index.ts",
-  "dependencies": {},
   "author": "Daniel Boros",
+  "scripts": {},
   "license": "MIT",
   "private": false,
   "repository": {
@@ -19,6 +19,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
+  "dependencies": {},
   "devDependencies": {
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
