@@ -1,0 +1,11 @@
+{
+    "name": "stochastic.js",
+    "description": "",
+    "authors": "Daniel Boros",
+    "version": "1.0.0",
+    "main": "index.ts",
+    "dependencies": {},
+    "author": "Daniel Boros",
+    "license": "MIT",
+    "private": false
+}
