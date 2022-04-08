@@ -1,8 +1,8 @@
 {
-  "name": "stochastic.js",
+  "name": "stochastic-js",
   "description": "",
   "authors": "Daniel Boros",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "main": "index.ts",
   "dependencies": {},
   "author": "Daniel Boros",
