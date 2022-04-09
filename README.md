@@ -20,6 +20,7 @@ This is a totally new project. The modules will be come in the future as I have 
 
 - normal distribution based on Box-Müller transformation
 - ordinary Wiener process
+- geometric brownian motion
 
 ### **Future plans**
 
