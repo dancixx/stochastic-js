@@ -1,6 +1,6 @@
 /**
  *
- * @param increments {number[]}
+ * @param {number[]} increments
  * @returns {number[]}
  */
 const cumsum = (increments: number[]): number[] => {

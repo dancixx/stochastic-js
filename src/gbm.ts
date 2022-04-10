@@ -2,11 +2,11 @@ import {wiener} from './wiener';
 
 /**
  *
- * @param mu {number}
- * @param sigma {number}
- * @param S0 {number}
- * @param n {number}
- * @param T {number}
+ * @param {number} mu
+ * @param {number} sigma
+ * @param {number} S0
+ * @param {number} n
+ * @param {number} T
  * @returns {Record<'dS' | 'dW' | 'S' | 'W', number[]>}
  * @description
  * dS_t = mu*S_t*dt + sigma*S_t*dW_t

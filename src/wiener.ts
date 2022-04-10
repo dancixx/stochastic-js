@@ -5,8 +5,8 @@ const norm = new normal();
 
 /**
  *
- * @param n {number}
- * @param T {number}
+ * @param {number} n
+ * @param {number} T
  * @returns {Record<'dW' | 'W', number[]>}
  */
 const wiener = (
@@ -27,13 +27,13 @@ const wiener = (
 
 /**
  *
- * @param isConstant {boolean}
- * @param mu {number}
- * @param n {number}
- * @param sigma {number}
- * @param rho {number}
- * @param T {number}
- * @param theta {number}
+ * @param {boolean} isConstant
+ * @param {number} mu
+ * @param {number} n
+ * @param {number} sigma
+ * @param {number} rho
+ * @param {number} T
+ * @param {number} theta
  * @returns {Record<'dW1' | 'dW2' | 'W1' | 'W2', number[]>}
  * @description
  * dW2_t = rho_t*dW1_t + (1-rho_t**2)**(1/2)*dZ_t

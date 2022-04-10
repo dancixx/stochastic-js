@@ -2,12 +2,12 @@ import {wiener} from './wiener';
 
 /**
  *
- * @param theta {number}
- * @param sigma {number}
- * @param X0 {number}
- * @param mu {number}
- * @param n {number}
- * @param T {number}
+ * @param {number} theta
+ * @param {number} sigma
+ * @param {number} X0
+ * @param {number} mu
+ * @param {number} n
+ * @param {number} T
  * @returns {Record<'dW' | 'dX' | 'W' | 'X', number[]>}
  * @description
  * dX_t = theta*(mu-X_t)*dt + sigma*dW_t

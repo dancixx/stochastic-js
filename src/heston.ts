@@ -2,15 +2,15 @@ import {correlatedWieners} from './wiener';
 
 /**
  *
- * @param v0 {number}
- * @param kappa {number}
- * @param theta {number}
- * @param eta {number}
- * @param S0 {number}
- * @param mu {number}
+ * @param {number} v0
+ * @param {number} kappa
+ * @param {number} theta
+ * @param {number} eta
+ * @param {number} S0
+ * @param {number} mu
  * @param isCorrelationConstant {boolean}
- * @param n {number}
- * @param T {number}
+ * @param {number} n
+ * @param {number} T
  * @returns {Record<'dS' | 'dv' | 'S' | 'v', number[]>}
  * @description
  * Heston model is a stochastic correlation model.
