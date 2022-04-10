@@ -13,7 +13,7 @@ import {correlatedWieners} from './wiener';
  * @param {number} T
  * @returns {Record<'dS' | 'dv' | 'S' | 'v', number[]>}
  * @description
- * Heston model is a stochastic correlation model.
+ * Heston model is a stochastic volatility model.
  * Default is the correlation between the price and the volatility is constant,
  * but you can set the isCorrelationConstant param to true to get the correlation
  * from a tanh tranformed OU proces.
