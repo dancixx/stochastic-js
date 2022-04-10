@@ -1,8 +1,6 @@
 import normal from './normal';
 import ou from './ou';
 
-const norm = new normal();
-
 /**
  *
  * @param {number} n
@@ -18,7 +16,7 @@ const wiener = (
   let W: number[] = new Array(n).fill(0);
 
   for (let index = 0; index < n - 1; index++) {
-    dW[index] = Math.sqrt(dt) * norm.boxMuller();
+    dW[index] = Math.sqrt(dt) * normal();
     W[index + 1] = W[index] + dW[index];
   }
 
