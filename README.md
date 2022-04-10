@@ -1,3 +1,9 @@
+[![badge](https://img.shields.io/npm/dm/stochastic-js)](https://www.npmjs.com/package/stochastic-js)
+[![badge](https://img.shields.io/npms-io/maintenance-score/stochastic-js)](https://www.npmjs.com/package/stochastic-js)
+[![badge](https://img.shields.io/npm/l/stochastic-js)](https://www.npmjs.com/package/stochastic-js)
+[![badge](https://img.shields.io/npm/v/stochastic-js)](https://www.npmjs.com/package/stochastic-js)
+[![badge](https://img.shields.io/npm/types/stochastic-js)](https://www.npmjs.com/package/stochastic-js)
+
 ### **Stochastic.js**
 
 This package is created to bring closer the stochastic calculus in Typescript.
