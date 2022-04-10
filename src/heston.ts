@@ -8,7 +8,7 @@ import {correlatedWieners} from './wiener';
  * @param {number} eta
  * @param {number} S0
  * @param {number} mu
- * @param isCorrelationConstant {boolean}
+ * @param {boolean} isCorrelationConstant
  * @param {number} n
  * @param {number} T
  * @returns {Record<'dS' | 'dv' | 'S' | 'v', number[]>}
