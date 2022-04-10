@@ -1,0 +1,39 @@
+import {wiener} from './wiener';
+
+/**
+ *
+ * @param theta {number}
+ * @param sigma {number}
+ * @param X0 {number}
+ * @param mu {number}
+ * @param n {number}
+ * @param T {number}
+ * @returns {Record<'dW' | 'dX' | 'W' | 'X', number[]>}
+ * @description
+ * dX_t = theta*(mu-X_t)*dt + sigma*dW_t
+ * If the mu !==0 the generator returns a mean reverting OU path (Vasicek model.).
+ */
+const ou = (
+  theta: number,
+  sigma: number,
+  X0: number = 0,
+  mu: number = 0,
+  n: number = 100,
+  T: number = 1,
+): Record<'dW' | 'dX' | 'W' | 'X', number[]> => {
+  const {dW, W} = wiener(n, T);
+  const dt = T / n;
+  let dX: number[] = new Array(n - 1).fill(0);
+  let X: number[] = new Array(n).fill(0);
+
+  X[0] = X0;
+
+  for (let index = 0; index < n - 1; index++) {
+    dX[index] = theta * (mu - X[index]) * dt + sigma * dW[index];
+    X[index + 1] = X[index] + dX[index];
+  }
+
+  return {dW, dX, W, X};
+};
+
+export default ou;

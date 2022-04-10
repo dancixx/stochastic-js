@@ -1,4 +1,6 @@
-import fractionalWiener from './src/fractionalWiener';
-import wiener from './src/wiener';
+import gbm from './src/gbm';
+import heston from './src/heston';
+import ou from './src/ou';
+import {correlatedWieners, wiener} from './src/wiener';
 
-export {fractionalWiener, wiener};
+export {correlatedWieners, gbm, heston, ou, wiener};

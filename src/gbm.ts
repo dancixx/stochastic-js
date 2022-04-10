@@ -1,5 +1,4 @@
-import {cumsum} from './utils';
-import wiener from './wiener';
+import {wiener} from './wiener';
 
 /**
  *
