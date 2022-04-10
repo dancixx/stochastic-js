@@ -5,6 +5,15 @@
   "version": "0.0.8",
   "main": "index.ts",
   "author": "Daniel Boros",
+  "keywords": [
+    "Stochastic",
+    "Ito",
+    "Wiener",
+    "Brownian",
+    "Normal",
+    "Calculus",
+    "Fractional"
+  ],
   "scripts": {},
   "license": "MIT",
   "private": false,
