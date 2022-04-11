@@ -24,11 +24,21 @@ This is a totally new project. The modules will be come in the future as I have 
 
 ### **Available modules**
 
-- normal distribution based on Box-Müller transformation
-- ordinary Wiener process
-- geometric brownian motion
-- correlated wiener processes
-- Heston stochastic volatility model
+**Continuous-time processes**
+
+- Wiener (Brownian motion)
+- Correlated Wieners (constant correlation, stochastic correlation based on tanh(OU))
+- Brownian bridge
+
+**Diffusion processes**
+
+- Geometric Brownian motion (GBM)
+- Ornstein-Uhlenbeck (OU, Vasicek)
+- Cox-Ingelsoll-Ross (CIR)
+
+**Volatility models**
+
+- Heston (constant correlation and stochastic correlation)
 
 ### **Future plans**
 

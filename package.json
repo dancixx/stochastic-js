@@ -15,6 +15,7 @@
     "Fractional"
   ],
   "scripts": {},
+  "types": "lib/typescript/index",
   "license": "MIT",
   "private": false,
   "repository": {

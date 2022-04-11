@@ -16,7 +16,7 @@ import {correlatedWieners} from './wiener';
  * Heston model is a stochastic volatility model.
  * Default is the correlation between the price and the volatility is constant,
  * but you can set the isCorrelationConstant param to true to get the correlation
- * from a tanh tranformed OU proces.
+ * from a tanh tranformed OU process.
  *
  * The model generate the asset price process and the volatility process.
  * dS = mu*S_t*dt + (v_t)**(1/2)*S_t*dW1_t

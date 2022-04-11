@@ -6,6 +6,9 @@ import ou from './ou';
  * @param {number} n
  * @param {number} T
  * @returns {Record<'dW' | 'W', number[]>}
+ * @description
+ * Return a realization of Wiener process.
+ * This process is known as Brownian motion too.
  */
 const wiener = (
   n: number = 100,
@@ -21,6 +24,30 @@ const wiener = (
   }
 
   return {dW, W};
+};
+
+/**
+ *
+ * @param {number} n
+ * @param {number} T
+ * @returns {Record<'B', number[]>}
+ * @description
+ * This returns a relaization of Brownian bridge.
+ * B_t = W_t - t/T*W_T
+ */
+const brownianBridge = (
+  n: number = 100,
+  T: number = 1,
+): Record<'B', number[]> => {
+  const {W} = wiener(n, T);
+  const dt = T / n;
+  let B: number[] = new Array(n).fill(0);
+
+  for (let index = 0; index < n - 1; index++) {
+    B[index] = W[index] - ((dt * index) / T) * W[n - 1];
+  }
+
+  return {B};
 };
 
 /**
@@ -70,4 +97,4 @@ const correlatedWieners = (
   return {dW1, dW2, W1, W2};
 };
 
-export {correlatedWieners, wiener};
+export {brownianBridge, correlatedWieners, wiener};
