@@ -26,8 +26,11 @@
     "url": "https://github.com/dancixx/stochastic-js/issues"
   },
   "homepage": "https://github.com/dancixx/stochastic-js",
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
   "devDependencies": {
+    "@types/lodash": "^4.14.181",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
   }
