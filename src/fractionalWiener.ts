@@ -96,7 +96,7 @@ const fractionalWiener = (
       fbm[i + 1] = fbm[i] + fgn[i];
     }
 
-    const timeScaledFBM = fbm.map(v => T ** H * v);
+    const timeScaledFBM = _.map(fbm, v => T ** H * v);
 
     return {fgn, fbm: timeScaledFBM};
   }
