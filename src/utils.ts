@@ -13,4 +13,12 @@ const cumsum = (increments: number[]): number[] => {
   return cumsum;
 };
 
-export {cumsum};
+// TODO: dft function
+const dft = (data: number[]): readonly [number[], number[]] => {
+  let real: number[] = [];
+  let im: number[] = [];
+
+  return [real, im];
+};
+
+export {cumsum, dft};
