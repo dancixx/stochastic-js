@@ -2,54 +2,64 @@ Arguments:
   /usr/local/bin/node /usr/local/bin/yarn publish
 
 PATH: 
-  /Users/danixx/opt/miniconda3/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Apple/usr/bin:/Users/danixx/opt/miniconda3/bin:/opt/homebrew/bin:/opt/homebrew/sbin
+  /Users/danixx/opt/miniconda3/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Apple/usr/bin
 
 Yarn version: 
-  1.22.17
+  1.22.18
 
 Node version: 
-  16.13.1
+  16.14.2
 
 Platform: 
   darwin arm64
 
 Trace: 
-  Error: https://npm.pkg.github.com/-/user/org.couchdb.user:danixx: Error authenticating user: Requires authentication
-      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:67029:18)
-      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140883:22)
-      at Request.emit (node:events:390:28)
-      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141855:10)
-      at Request.emit (node:events:390:28)
-      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141777:12)
-      at Object.onceWrapper (node:events:509:28)
-      at IncomingMessage.emit (node:events:402:35)
-      at endReadableNT (node:internal/streams/readable:1343:12)
-      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+  Error: canceled
+      at Interface.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:137143:13)
+      at Interface.emit (node:events:526:28)
+      at Interface._ttyWrite (node:readline:1081:16)
+      at ReadStream.onkeypress (node:readline:288:10)
+      at ReadStream.emit (node:events:526:28)
+      at emitKeys (node:internal/readline/utils:358:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (node:internal/readline/emitKeypressEvents:61:36)
+      at ReadStream.emit (node:events:526:28)
+      at addChunk (node:internal/streams/readable:315:12)
 
 npm manifest: 
   {
-    "name": "@dancixx/stochastic.js",
+    "name": "stochastic-js",
     "description": "",
     "authors": "Daniel Boros",
-    "version": "0.0.12",
+    "version": "0.0.10",
     "main": "index.ts",
     "author": "Daniel Boros",
+    "keywords": [
+      "Stochastic",
+      "Ito",
+      "Wiener",
+      "Brownian",
+      "Normal",
+      "Calculus",
+      "Fractional"
+    ],
     "scripts": {},
+    "types": "lib/typescript/index",
     "license": "MIT",
     "private": false,
     "repository": {
       "type": "git",
-      "url": "https://github.com/dancixx/stochastic-js.git"
+      "url": "https://github.com/dancixx/stochastic-js"
     },
     "bugs": {
       "url": "https://github.com/dancixx/stochastic-js/issues"
     },
     "homepage": "https://github.com/dancixx/stochastic-js",
-    "publishConfig": {
-      "registry": "https://npm.pkg.github.com/"
+    "dependencies": {
+      "lodash": "^4.17.21"
     },
-    "dependencies": {},
     "devDependencies": {
+      "@types/lodash": "^4.14.181",
       "ts-node": "^10.7.0",
       "typescript": "^4.6.3"
     }
@@ -95,6 +105,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@tsconfig/node16/-/node16-1.0.2.tgz#423c77877d0569db20e1fc80885ac4118314010e"
     integrity sha512-eZxlbI8GZscaGS7kkc/trHTT5xgrjH3/1n2JDwusC9iahPKWMRvRjJSAN5mCXviuTGQ/lHnhvv8Q1YTpnfz9gA==
   
+  "@types/lodash@^4.14.181":
+    version "4.14.181"
+    resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.181.tgz#d1d3740c379fda17ab175165ba04e2d03389385d"
+    integrity sha512-n3tyKthHJbkiWhDZs3DkhkCzt2MexYHXlX0td5iMplyfwketaOeKboEVBqzceH7juqvEg3q5oUoBFxSLu7zFag==
+  
   acorn-walk@^8.1.1:
     version "8.2.0"
     resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-8.2.0.tgz#741210f2e2426454508853a2f44d0ab83b7f69c1"
@@ -119,6 +134,11 @@ Lockfile:
     version "4.0.2"
     resolved "https://registry.yarnpkg.com/diff/-/diff-4.0.2.tgz#60f3aecb89d5fae520c11aa19efc2bb982aade7d"
     integrity sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==
+  
+  lodash@^4.17.21:
+    version "4.17.21"
+    resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+    integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
   
   make-error@^1.1.1:
     version "1.3.6"
