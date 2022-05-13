@@ -1,4 +1,4 @@
-import {correlatedWieners} from './wiener';
+import {correlatedWieners} from '../noises/wiener';
 
 /**
  *
@@ -46,7 +46,9 @@ const heston = (
   for (let index = 0; index < n - 1; index++) {
     dv[index] =
       kappa * (theta - v[index]) * dt + eta * Math.sqrt(v[index]) * dW2[index];
-    v[index + 1] = v[index] + dv[index];
+
+    // in discrete time, the volatility can be negative
+    v[index + 1] = Math.max(...[v[index] + dv[index], 0]);
 
     dS[index] =
       mu * S[index] * dt + Math.sqrt(v[index]) * S[index] * dW1[index];

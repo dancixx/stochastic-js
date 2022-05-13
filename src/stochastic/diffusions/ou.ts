@@ -1,4 +1,4 @@
-import {wiener} from './wiener';
+import {wiener} from '../noises/wiener';
 
 /**
  * @param {number} theta
@@ -35,4 +35,8 @@ const ou = (
   return {dW, dX, W, X};
 };
 
-export default ou;
+const fou = () => {
+  throw new Error('Not implemented');
+};
+
+export {ou, fou};

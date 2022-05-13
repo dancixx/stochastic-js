@@ -1,4 +1,4 @@
-import {wiener} from './wiener';
+import {wiener} from '../noises/wiener';
 
 /**
  * @param {number} kappa

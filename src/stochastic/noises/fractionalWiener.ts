@@ -1,6 +1,5 @@
 import _ from 'lodash';
-import normal from './normal';
-import {dft} from './utils';
+import normal from '../distributions/normal';
 
 /**
  *
@@ -22,30 +21,31 @@ const fractionalWiener = (
   }
 
   if (method === 'kroese') {
-    let r = new Array(n + 1).fill(0);
-    r[0] = 0;
+    throw new Error('Kroese method is not implemented yet.');
+    // let r = new Array(n + 1).fill(0);
+    // r[0] = 0;
 
-    for (let index = 0; index < r.length; index++) {
-      r[index] =
-        (1 / 2) *
-        ((index + 1) ** (2 * H) -
-          2 * index ** (2 * H) +
-          (index - 1) ** (2 * H));
-    }
+    // for (let index = 0; index < r.length; index++) {
+    //   r[index] =
+    //     (1 / 2) *
+    //     ((index + 1) ** (2 * H) -
+    //       2 * index ** (2 * H) +
+    //       (index - 1) ** (2 * H));
+    // }
 
-    r = _.concat(...r, _.slice(_.reverse(r), 1, r.length - 1));
-    const lambda = dft(r);
-    let transformedLambda: number[] = new Array(lambda[0].length);
+    // r = _.concat(...r, _.slice(_.reverse(r), 1, r.length - 1));
+    // const lambda = dft(r);
+    // let transformedLambda: number[] = new Array(lambda[0].length);
 
-    for (let index = 0; index < transformedLambda.length; index++) {
-      transformedLambda[index] = (lambda[0][index] / 2) * n;
-    }
+    // for (let index = 0; index < transformedLambda.length; index++) {
+    //   transformedLambda[index] = (lambda[0][index] / 2) * n;
+    // }
 
-    let sqrt: number[] = new Array(lambda[0].length);
+    // let sqrt: number[] = new Array(lambda[0].length);
 
-    for (let index = 0; index < sqrt.length; index++) {
-      sqrt[index] = Math.sqrt(transformedLambda[index]);
-    }
+    // for (let index = 0; index < sqrt.length; index++) {
+    //   sqrt[index] = Math.sqrt(transformedLambda[index]);
+    // }
 
     // TODO: end this method
   } else {

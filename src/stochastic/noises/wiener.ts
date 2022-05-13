@@ -1,5 +1,5 @@
-import normal from './normal';
-import ou from './ou';
+import normal from '../distributions/normal';
+import {ou} from '../diffusions/ou';
 
 /**
  *
