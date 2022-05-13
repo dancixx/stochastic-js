@@ -29,11 +29,13 @@ This is a totally new project. The modules will be come in the future as I have 
 - Wiener (Brownian motion)
 - Correlated Wieners (constant correlation, stochastic correlation based on tanh(OU))
 - Brownian bridge
+- Fractional Wiener Process (based on Cholesky decomp.) (beta)
 
 **Diffusion processes**
 
 - Geometric Brownian motion (GBM)
 - Ornstein-Uhlenbeck (OU, Vasicek)
+- Fractional Ornstein-Uhlenbeck (OU, Vasicek) (beta)
 - Cox-Ingelsoll-Ross (CIR)
 
 **Volatility models**
@@ -44,4 +46,6 @@ This is a totally new project. The modules will be come in the future as I have 
 
 - [ ] Add multiple normal distribution generator
 - [ ] Add different stochastic process, SDEs
-- [ ] Add fractional process support
+- [x] Add fractional process support
+- [ ] Add test statistics to estimate the paramters
+- [ ] Add Fast Fourier implementations
