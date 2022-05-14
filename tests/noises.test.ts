@@ -1,3 +1,4 @@
+import {possion} from '../src/stochastic/noises/poisson';
 import {brownianBridge, wiener} from '../src/stochastic/noises/wiener';
 
 it('wiener-process', () => {
