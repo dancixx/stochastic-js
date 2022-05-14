@@ -23,32 +23,6 @@ const fractionalWiener = (
 
   if (method === 'kroese') {
     throw new Error('Kroese method is not implemented yet.');
-    // let r = new Array(n + 1).fill(0);
-    // r[0] = 0;
-
-    // for (let index = 0; index < r.length; index++) {
-    //   r[index] =
-    //     (1 / 2) *
-    //     ((index + 1) ** (2 * H) -
-    //       2 * index ** (2 * H) +
-    //       (index - 1) ** (2 * H));
-    // }
-
-    // r = _.concat(...r, _.slice(_.reverse(r), 1, r.length - 1));
-    // const lambda = dft(r);
-    // let transformedLambda: number[] = new Array(lambda[0].length);
-
-    // for (let index = 0; index < transformedLambda.length; index++) {
-    //   transformedLambda[index] = (lambda[0][index] / 2) * n;
-    // }
-
-    // let sqrt: number[] = new Array(lambda[0].length);
-
-    // for (let index = 0; index < sqrt.length; index++) {
-    //   sqrt[index] = Math.sqrt(transformedLambda[index]);
-    // }
-
-    // TODO: end this method
   } else {
     const autoCovariance = (index: number, H: number) =>
       (1 / 2) *
