@@ -3,10 +3,8 @@
  *
  * @param data
  * @returns
+ * @description
+ * Discrete Fourier Transform. Based on the algorithm described in
+ * https://en.wikipedia.org/wiki/Discrete_Fourier_transform
  */
-const dft = (data: number[]): readonly [number[], number[]] => {
-  let real: number[] = [];
-  let im: number[] = [];
-
-  return [real, im];
-};
+const dft = (data: number[]) => {};
