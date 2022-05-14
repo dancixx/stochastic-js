@@ -49,3 +49,5 @@ This is a totally new project. The modules will be come in the future as I have 
 - [x] Add fractional process support
 - [ ] Add test statistics to estimate the paramters
 - [ ] Add Fast Fourier implementations
+- [ ] Add support for Lévy Process
+- [ ] Add support for Jump Diffusions
