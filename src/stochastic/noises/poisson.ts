@@ -4,7 +4,6 @@ import _ from 'lodash';
  *
  * @param {number} n
  * @param {number} lambda
- * @param {number} T
  * @returns {Record<'times' | 'timesTotal' | 'X', number[]>}
  * @description
  * X_t = lambda*X_t-1*(1-e^(-lambda*t))
@@ -42,6 +41,7 @@ const possion = (
  *
  * @param {number} n
  * @param {number} lambda
+ * @param {function} distribution
  * @returns {Record<'times' | 'timesTotal' | 'X' | 'jumps', number[]>}
  * @description
  * X_t = sum_{i=1}^{N(t)} Y_i
@@ -49,6 +49,7 @@ const possion = (
 const compoundPoisson = (
   n: number,
   lambda: number,
+  distribution: () => number,
 ): Record<'times' | 'timesTotal' | 'X' | 'jumps', number[]> => {
   if (lambda <= 0) {
     throw new Error('lambda must be positive');
@@ -67,7 +68,7 @@ const compoundPoisson = (
   jumps[0] = 0;
 
   for (let index = 0; index < poissonProcess.length; index++) {
-    const jump = _.random(0, 10, false);
+    const jump = distribution();
     jumps[index] = jump;
     X[index + 1] = X[index] + jump;
   }
