@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import {compoundPoisson} from '../noises/poisson';
 import {wiener} from '../noises/wiener';
 
@@ -21,11 +20,7 @@ const levy = (
   T: number = 1,
 ): Record<'dX' | 'X', number[]> => {
   const {dW} = wiener(n, 1);
-  const {X: cPoisson} = compoundPoisson(
-    n,
-    lambda,
-    () => _.random(0, 10, false)!,
-  );
+  const {X: cPoisson} = compoundPoisson(n, lambda);
   const dX: number[] = new Array(n - 1).fill(0);
   const X: number[] = new Array(n).fill(0);
   const dt = T / n;

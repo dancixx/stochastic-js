@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import normal from '../distributions/normal';
 
 /**
  *
@@ -41,7 +42,7 @@ const possion = (
  *
  * @param {number} n
  * @param {number} lambda
- * @param {function} distribution
+ * @param {number[]} jumps
  * @returns {Record<'times' | 'timesTotal' | 'X' | 'jumps', number[]>}
  * @description
  * X_t = sum_{i=1}^{N(t)} Y_i
@@ -49,7 +50,7 @@ const possion = (
 const compoundPoisson = (
   n: number,
   lambda: number,
-  distribution: () => number,
+  jumps?: number[],
 ): Record<'times' | 'timesTotal' | 'X' | 'jumps', number[]> => {
   if (lambda <= 0) {
     throw new Error('lambda must be positive');
@@ -62,18 +63,24 @@ const compoundPoisson = (
   const {times, timesTotal, X: poissonProcess} = possion(n, lambda);
 
   let X = new Array(poissonProcess.length + 1).fill(0);
-  let jumps = new Array(poissonProcess.length).fill(0);
+  let _jumps = new Array(poissonProcess.length + 1).fill(0);
 
   X[0] = poissonProcess[0];
-  jumps[0] = 0;
+  _jumps[0] = 0;
 
   for (let index = 0; index < poissonProcess.length; index++) {
-    const jump = distribution();
-    jumps[index] = jump;
-    X[index + 1] = X[index] + jump;
+    if (!jumps) {
+      const jump = normal(0, 1);
+      _jumps[index + 1] = jump;
+      X[index + 1] = X[index] + jump;
+    } else {
+      X[index + 1] = X[index] + jumps[index + 1];
+    }
   }
-
-  return {times, timesTotal, X, jumps};
+  console.log(times, timesTotal, X, jumps || _jumps);
+  return {times, timesTotal, X, jumps: jumps || _jumps};
 };
 
 export {possion, compoundPoisson};
+
+compoundPoisson(10, 1);
