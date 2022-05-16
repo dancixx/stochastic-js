@@ -1,5 +1,5 @@
 import normal from '../distributions/normal';
-import {ou} from '../diffusions/ou';
+import {fou, ou} from '../diffusions/ou';
 
 /**
  *
@@ -53,12 +53,14 @@ const brownianBridge = (
 /**
  *
  * @param {boolean} isConstant
- * @param {number} mu
  * @param {number} n
- * @param {number} sigma
- * @param {number} rho
  * @param {number} T
+ * @param {number} rho
+ * @param {number} mu
+ * @param {number} sigma
  * @param {number} theta
+ * @param {number} H
+ * @param {boolean} isRoughCorrelation
  * @returns {Record<'dW1' | 'dW2' | 'W1' | 'W2', number[]>}
  * @description
  * dW2_t = rho_t*dW1_t + (1-rho_t**2)**(1/2)*dZ_t
@@ -66,12 +68,14 @@ const brownianBridge = (
  */
 const correlatedWieners = (
   isConstant: boolean = true,
-  mu: number = 0.5,
   n: number = 100,
-  sigma: number = 0.5,
-  rho: number = 0.05,
   T: number = 1,
+  rho: number = 0.05,
+  mu: number = 0.5,
+  sigma: number = 0.5,
   theta: number = 8,
+  H: number = 0.7,
+  isRoughCorrelation: boolean = false,
 ): Record<'dW1' | 'dW2' | 'W1' | 'W2', number[]> => {
   const {dW: dW1, W: W1} = wiener(n, T);
   const {dW: dZ} = wiener(n, T);
@@ -82,8 +86,18 @@ const correlatedWieners = (
     for (let index = 0; index < n - 1; index++) {
       dW2[index] = rho * dW1[index] + Math.sqrt(1 - rho ** 2) * dZ[index];
     }
-  } else {
+  } else if (!isRoughCorrelation) {
     const {X: rho} = ou(theta, sigma, 0, mu, n, T);
+
+    for (let index = 0; index < n - 1; index++) {
+      dW2[index] =
+        Math.tanh(rho[index]) * dW1[index] +
+        Math.sqrt(1 - Math.tanh(rho[index]) ** 2) * dZ[index];
+
+      W2[index + 1] = W2[index] + dW2[index];
+    }
+  } else {
+    const {X: rho} = fou(theta, sigma, 0, mu, n, T, H);
 
     for (let index = 0; index < n - 1; index++) {
       dW2[index] =

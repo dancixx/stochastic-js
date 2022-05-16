@@ -44,6 +44,7 @@ const ou = (
  * @param {number} mu
  * @param {number} n
  * @param {number} T
+ * @param {number} H
  * @returns {Record<'fbm' | 'fgn' | 'dX' | 'X', number[]>}
  * @description
  * dX_t = theta*(mu-X_t)*dt + sigma*dW^H_t
@@ -56,8 +57,9 @@ const fou = (
   mu: number = 0,
   n: number = 100,
   T: number = 1,
+  H: number = 0.7,
 ): Record<'fgn' | 'fbm' | 'dX' | 'X', number[]> => {
-  const {fgn, fbm} = fractionalWiener(n, T);
+  const {fgn, fbm} = fractionalWiener(n, T, H);
   const dt = T / n;
   let dX: number[] = new Array(n - 1).fill(0);
   let X: number[] = new Array(n).fill(0);
