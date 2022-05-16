@@ -8,6 +8,7 @@ import {
   wiener,
 } from './src/stochastic/noises/wiener';
 import fractionalWiener from './src/stochastic/noises/fractionalWiener';
+import {possion, compoundPoisson} from './src/stochastic/noises/poisson';
 
 export {
   brownianBridge,
@@ -16,6 +17,9 @@ export {
   gbm,
   heston,
   ou,
+  fou,
+  possion,
+  compoundPoisson,
   wiener,
   fractionalWiener,
 };
