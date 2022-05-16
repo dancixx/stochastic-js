@@ -77,7 +77,7 @@ const compoundPoisson = (
       X[index + 1] = X[index] + jumps[index + 1];
     }
   }
-  console.log(times, timesTotal, X, jumps || _jumps);
+
   return {times, timesTotal, X, jumps: jumps || _jumps};
 };
 
