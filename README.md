@@ -3,6 +3,7 @@
 [![badge](https://img.shields.io/npm/l/stochastic-js)](https://www.npmjs.com/package/stochastic-js)
 [![badge](https://img.shields.io/npm/v/stochastic-js)](https://www.npmjs.com/package/stochastic-js)
 [![badge](https://img.shields.io/npm/types/stochastic-js)](https://www.npmjs.com/package/stochastic-js)
+[![Package Quality](https://packagequality.com/shield/stochastic-js.svg)](https://packagequality.com/#?package=stochastic-js)
 
 ### Stochastic.js
 
