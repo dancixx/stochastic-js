@@ -47,7 +47,7 @@ const heston = (
     dv[index] =
       kappa * (theta - v[index]) * dt + eta * Math.sqrt(v[index]) * dW2[index];
 
-    // in discrete time, the volatility can be negative
+    // in discrete time, the volatility can't be negative
     v[index + 1] = Math.max(...[v[index] + dv[index], 0]);
 
     dS[index] =
