@@ -11,10 +11,12 @@ import fractionalWiener from './src/stochastic/noises/fractionalWiener';
 import {possion, compoundPoisson} from './src/stochastic/noises/poisson';
 import * as linalg from './src/linalg/index';
 import * as math from './src/math/index';
+import * as stats from './src/statistics/index';
 
 export {
   linalg,
   math,
+  stats,
   brownianBridge,
   cir,
   correlatedWieners,
