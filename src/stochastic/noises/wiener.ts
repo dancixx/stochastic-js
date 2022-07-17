@@ -1,5 +1,6 @@
 import normal from '../distributions/normal';
 import {fou, ou} from '../diffusions/ou';
+import {jacobi} from '../diffusions';
 
 /**
  *
@@ -59,13 +60,18 @@ const brownianBridge = (
  * @param {number} mu
  * @param {number} sigma
  * @param {number} theta
+ * @param {number} alpha
+ * @param {number} beta
  * @param {number} H
  * @param {boolean} isRoughCorrelation
+ * @param {'ornsteinUhlenbeck' | 'jacobi'} correlationProcess
  * @returns {Record<'dW1' | 'dW2' | 'W1' | 'W2', number[]>}
  * @description
  * dW2_t = rho_t*dW1_t + (1-rho_t**2)**(1/2)*dZ_t
- * If the isConstant = false, than the correlation process comes from OU.
+ * If the isConstant = false, than the correlation process comes from OU or Jacobi.
+ * If the isRoughCorrelation = true, than the correlation process comes from Fou.
  */
+
 const correlatedWieners = (
   isConstant: boolean = true,
   n: number = 100,
@@ -74,8 +80,11 @@ const correlatedWieners = (
   mu: number = 0.5,
   sigma: number = 0.5,
   theta: number = 8,
+  alpha: number = 0.5,
+  beta: number = 0.5,
   H: number = 0.7,
   isRoughCorrelation: boolean = false,
+  correlationProcess: 'ornsteinUhlenbeck' | 'jacobi' = 'ornsteinUhlenbeck',
 ): Record<'dW1' | 'dW2' | 'W1' | 'W2', number[]> => {
   const {dW: dW1, W: W1} = wiener(n, T);
   const {dW: dZ} = wiener(n, T);
@@ -93,17 +102,18 @@ const correlatedWieners = (
       dW2[index] =
         Math.tanh(rho[index]) * dW1[index] +
         Math.sqrt(1 - Math.tanh(rho[index]) ** 2) * dZ[index];
-
       W2[index + 1] = W2[index] + dW2[index];
     }
   } else {
-    const {X: rho} = fou(theta, sigma, 0, mu, n, T, H);
+    const {X: rho} =
+      correlationProcess === 'ornsteinUhlenbeck'
+        ? fou(theta, sigma, 0, mu, n, T, H)
+        : jacobi(alpha, beta, sigma, 0, n, T);
 
     for (let index = 0; index < n - 1; index++) {
       dW2[index] =
         Math.tanh(rho[index]) * dW1[index] +
         Math.sqrt(1 - Math.tanh(rho[index]) ** 2) * dZ[index];
-
       W2[index + 1] = W2[index] + dW2[index];
     }
   }
