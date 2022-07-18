@@ -40,6 +40,6 @@ This is a totally new project. The modules will be come in the future as I have 
 
 ### Sponsoring
 
-This library can be very useful for anybody who wants to play with stochastic analysis or find data generators for machine learning projects. I plan to extend to a much more complex Math library with a lot of useful tools, but the main concept is still around financial mathematics. If you like this project you can buy me a coffee.
+This library can be very useful for anybody who wants to play with stochastic analysis or find data generators for machine learning projects. I plan to extend to a much more complex Math library with a lot of useful tools, but the main concept is still around financial mathematics. If you like this project you can give me a star.
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/dancixx)
+<!-- [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/dancixx) -->
