@@ -11,10 +11,10 @@ Soon...
 ### Usage
 
 ```ts
-import { compoundPoisson } from "stochastic-js";
+import {stochastic} from 'stochastic-js';
 
 const n = 100;
 const lambda = 1;
 
-const { times, timesTotal, X } = compoundPoisson(n, lambda);
+const {times, timesTotal, X} = stochastic.noises.compoundPoisson(n, lambda);
 ```

@@ -13,7 +13,7 @@ Soon...
 #### Example #1
 
 ```ts
-import { correlatedWieners } from "stochastic-js";
+import {stochastic} from 'stochastic-js';
 
 // the correlation is constant and time-independent
 const isConstant = true;
@@ -21,7 +21,12 @@ const n = 100;
 const T = 1;
 const rho = 0.02;
 
-const { dW1, dw2, W1, W2 } = correlatedWieners(isConstant, _, n, _, rho, T, _);
+const {dW1, dw2, W1, W2} = stochastic.noises.correlatedWieners(
+  isConstant,
+  n,
+  T,
+  rho,
+);
 
 // dW is the increments of the Wiener process
 // W is the generated sample of the Wiener process
@@ -30,18 +35,25 @@ const { dW1, dw2, W1, W2 } = correlatedWieners(isConstant, _, n, _, rho, T, _);
 #### Example #2
 
 ```ts
-import { correlatedWieners } from "stochastic-js";
+import {stochastic} from 'stochastic-js';
 
 // the correlation comes from tanh transformed Ornstein-Uhlenbeck process
 const isConstant = false;
 const n = 100;
 const T = 1;
-const rho = 0.02;
 const mu = 0.5;
 const sigma = 0.5;
 const theta = 8;
 
-const { dW1, dw2, W1, W2 } = correlatedWieners(isConstant, mu, n, sigma, rho, T, theta);
+const {dW1, dw2, W1, W2} = stochastic.noises.correlatedWieners(
+  isConstant,
+  n,
+  T,
+  _,
+  mu,
+  sigma,
+  theta,
+);
 
 // dW1, dW2 are the increments of the Wiener processes
 // W1, W2 are the generated sample of the Wiener processes
@@ -50,25 +62,65 @@ const { dW1, dw2, W1, W2 } = correlatedWieners(isConstant, mu, n, sigma, rho, T,
 #### Example #3
 
 ```ts
-import { correlatedWieners } from "stochastic-js";
+import {stochastic} from 'stochastic-js';
 
 // the correlation comes from tanh transformed fractional Ornstein-Uhlenbeck process
 const isConstant = false;
 const n = 100;
 const T = 1;
-const rho = 0.02;
 const mu = 0.5;
 const sigma = 0.5;
 const theta = 8;
 const H = 0.7;
 const isRoughCorrelation = true;
 
-const { dW1, dw2, W1, W2 } = correlatedWieners(isConstant, mu, n, sigma, rho, T, theta, H, isRoughCorrelation);
+const {dW1, dw2, W1, W2} = stochastic.noises.correlatedWieners(
+  isConstant,
+  n,
+  T,
+  _,
+  mu,
+  sigma,
+  theta,
+  _,
+  _,
+  H,
+  isRoughCorrelation,
+);
 
 // dW1, dW2 are the increments of the Wiener processes
 // W1, W2 are the generated sample of the Wiener processes
 ```
 
-### Future Plans
+#### Example #4
 
--   [ ] Add support for Jacobi process as correlation process
+```ts
+import {stochastic} from 'stochastic-js';
+
+// the correlation comes from Jacobi process
+const isConstant = false;
+const n = 100;
+const T = 1;
+const sigma = 0.5;
+const alpha = 0.5;
+const beta = 0.5;
+const H = 0.7;
+const correlationProcess = 'jacobi';
+
+const {dW1, dw2, W1, W2} = stochastic.noises.correlatedWieners(
+  isConstant,
+  n,
+  T,
+  _,
+  _,
+  sigma,
+  _,
+  alpha,
+  beta,
+  H,
+  isRoughCorrelation,
+);
+
+// dW1, dW2 are the increments of the Wiener processes
+// W1, W2 are the generated sample of the Wiener processes
+```
