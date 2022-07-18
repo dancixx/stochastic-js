@@ -16,7 +16,7 @@ import {stochastic} from 'stochastic-js';
 const m = 0;
 const sigma = 1;
 
-const {dX, X} = stochastic.distributions.normal(m, sigma);
+const sample = stochastic.distributions.normal(m, sigma);
 
 // generate a sample from normal distribution
 ```
