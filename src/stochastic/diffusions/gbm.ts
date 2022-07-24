@@ -8,6 +8,8 @@ import {wiener} from '../noises/wiener';
  * @param {number} n
  * @param {number} T
  * @returns {Record<'dS' | 'dW' | 'S' | 'W', number[]>}
+ * @memberof stochastic
+ *
  * @description
  * dS_t = mu*S_t*dt + sigma*S_t*dW_t
  * mu is the drift and the sigma is the diffusion coefficient.

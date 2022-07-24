@@ -7,6 +7,10 @@ import {jacobi} from '../diffusions';
  * @param {number} n
  * @param {number} T
  * @returns {Record<'dW' | 'W', number[]>}
+ * @memberof stochastic
+ * @example
+ * const {dW, W} = wiener(100, 1);
+ *
  * @description
  * Return a realization of Wiener process.
  * This process is known as Brownian motion too.
@@ -32,6 +36,10 @@ const wiener = (
  * @param {number} n
  * @param {number} T
  * @returns {Record<'B', number[]>}
+ * @memberof stochastic
+ * @example
+ * const {B} = brownian(100, 1);
+ *
  * @description
  * This returns a relaization of Brownian bridge.
  * B_t = W_t - t/T*W_T
@@ -66,6 +74,10 @@ const brownianBridge = (
  * @param {boolean} isRoughCorrelation
  * @param {'ornsteinUhlenbeck' | 'jacobi'} correlationProcess
  * @returns {Record<'dW1' | 'dW2' | 'W1' | 'W2', number[]>}
+ * @memberof stochastic
+ * @example
+ * const {dW1, dW2, W1, W2} = correlatedWiener(true, 100, 1, 0.05, 0.5, 0.5, 8, 0.5, 0.5, 0.7, false);
+ *
  * @description
  * dW2_t = rho_t*dW1_t + (1-rho_t**2)**(1/2)*dZ_t
  * If the isConstant = false, than the correlation process comes from OU or Jacobi.

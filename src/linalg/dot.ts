@@ -3,6 +3,7 @@
  * @param {number[]} a vector
  * @param {number[]} b vector
  * @returns {number}
+ * @memberof linalg
  *
  * @description
  * Dot product of two vectors.

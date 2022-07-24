@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import normal from '../distributions/normal';
 
 /**
@@ -6,7 +5,12 @@ import normal from '../distributions/normal';
  * @param {number} n
  * @param {number} lambda
  * @returns {Record<'times' | 'timesTotal' | 'X', number[]>}
+ * @memberof stochastic
+ * @example
+ * const {times, timesTotal, X} = compoundPoisson(100, 0.7);
+ *
  * @description
+ * Poisson process.
  * X_t = lambda*X_t-1*(1-e^(-lambda*t))
  */
 const possion = (
@@ -44,7 +48,12 @@ const possion = (
  * @param {number} lambda
  * @param {number[]} jumps
  * @returns {Record<'times' | 'timesTotal' | 'X' | 'jumps', number[]>}
+ * @memberof stochastic
+ * @example
+ * const {times, timesTotal, X, jumps} = compoundPoisson(100, 0.7, [0.1, 0.2, 0.3]);
+ *
  * @description
+ * Poisson process with jumps. (Compound Poisson process)
  * X_t = sum_{i=1}^{N(t)} Y_i
  */
 const compoundPoisson = (

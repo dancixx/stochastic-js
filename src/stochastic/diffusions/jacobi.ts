@@ -9,6 +9,8 @@ import {wiener} from '../noises';
  * @param {number} n
  * @param {number} T
  * @returns {Record<'dW' | 'dX' | 'W' | 'X', number[]>}
+ * @memberof stochastic
+ *
  * @description
  * dX_t = (alpha-beta*X_t)*dt + sigma*(X_t*(1-X_t))**(1/2)*dW_t
  */
@@ -19,7 +21,7 @@ const jacobi = (
   X0: number = 0,
   n: number = 100,
   T: number = 1,
-) => {
+): Record<'dW' | 'dX' | 'W' | 'X', number[]> => {
   const {dW, W} = wiener(n, T);
   const dt = T / n;
   let dX: number[] = new Array(n - 1).fill(0);

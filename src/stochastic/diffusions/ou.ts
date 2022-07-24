@@ -9,6 +9,8 @@ import {wiener} from '../noises/wiener';
  * @param {number} n
  * @param {number} T
  * @returns {Record<'dW' | 'dX' | 'W' | 'X', number[]>}
+ * @memberof stochastic
+ *
  * @description
  * dX_t = theta*(mu-X_t)*dt + sigma*dW_t
  * If the mu !==0 the generator returns a mean reverting OU path (Vasicek model.).
@@ -46,6 +48,8 @@ const ou = (
  * @param {number} T
  * @param {number} H
  * @returns {Record<'fbm' | 'fgn' | 'dX' | 'X', number[]>}
+ * @memberof stochastic
+ *
  * @description
  * dX_t = theta*(mu-X_t)*dt + sigma*dW^H_t
  * If the mu !==0 the generator returns a mean reverting FOU path (Vasicek model.).

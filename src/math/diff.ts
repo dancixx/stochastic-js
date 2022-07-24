@@ -2,6 +2,7 @@
  *
  * @param {number[]} v vector
  * @returns {number[]}
+ * @memberof math
  *
  * @description
  * Derivative of a vector.

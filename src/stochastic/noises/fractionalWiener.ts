@@ -1,14 +1,19 @@
-import _ from 'lodash';
 import normal from '../distributions/normal';
 import choleskyDecomposition from '../../linalg/cholesky';
 
 /**
  *
- * @param n
- * @param T
- * @param H
- * @param method
- * @returns
+ * @param {number} n
+ * @param {number} T
+ * @param {number} H
+ * @param {'cholesky' | 'kroese'} method
+ * @returns {Record<'fgn' | 'fbm', number[]>}
+ * @memberof stochastic
+ * @example
+ * const {fgn, fbm} = fractionalWiener(100, 1, 0.7, 'cholesky');
+ *
+ * @description
+ * Fractional Brownian motion.
  */
 
 const fractionalWiener = (
@@ -16,7 +21,7 @@ const fractionalWiener = (
   T: number = 1,
   H: number = 0.7,
   method: 'cholesky' | 'kroese' = 'cholesky',
-) => {
+): Record<'fgn' | 'fbm', number[]> => {
   if (H < 0 || H > 1) {
     throw new Error('Hurst must be between 0 and 1.');
   }
@@ -48,11 +53,11 @@ const fractionalWiener = (
     fbm[0] = 0;
 
     for (let i = 0; i < n - 1; i++) {
-      fgn[i] = _.sum(_.map(cholesky[i], v => v * normal()));
+      fgn[i] = cholesky[i].map(v => v * normal()).reduce((a, b) => a + b);
       fbm[i + 1] = fbm[i] + fgn[i];
     }
 
-    const timeScaledFBM = _.map(fbm, v => T ** H * v);
+    const timeScaledFBM = fbm.map(v => T ** H * v);
 
     return {fgn, fbm: timeScaledFBM};
   }

@@ -6,6 +6,9 @@ type NormalMethods = 'BOX_MULLER';
  * @param {number} sigma
  * @param {NormalMethods} method
  * @returns {number}
+ * @memberof stochastic
+ * @example
+ * const sample = normal(0, 1);
  *
  * @description
  * This function returns a sample from normal distribution.

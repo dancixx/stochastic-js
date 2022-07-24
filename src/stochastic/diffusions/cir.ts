@@ -8,6 +8,8 @@ import {wiener} from '../noises/wiener';
  * @param {number} n
  * @param {number} T
  * @returns {Record<'dW' | 'dX' | 'W' | 'X', number[]>}
+ * @memberof stochastic
+ *
  * @description
  * dX_t = kappa*(theta-X_t)*dt + sigma*(X_t)**(1/2)*dW_t
  * If sigma, kappa, theta, X0 > 0 is true than a unique strong solution is exists

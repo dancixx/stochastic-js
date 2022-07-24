@@ -3,6 +3,8 @@
  * @param {number[][]} a
  * @param {'cholesky-banachiewicz' | 'cholesky-crout'} algorithm
  * @returns {number[][]}
+ * @memberof linalg
+ *
  * @description
  * Cholesky decomposition of a matrix. Based on the algorithm described in
  * https://en.wikipedia.org/wiki/Cholesky_decomposition

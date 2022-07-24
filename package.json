@@ -28,15 +28,12 @@
     "url": "https://github.com/dancixx/stochastic-js/issues"
   },
   "homepage": "https://github.com/dancixx/stochastic-js",
-  "dependencies": {
-    "lodash": "^4.17.21"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.17.10",
     "@babel/node": "^7.17.10",
     "@babel/preset-typescript": "^7.16.7",
     "@types/jest": "^27.5.1",
-    "@types/lodash": "^4.14.181",
     "jest": "^28.1.0",
     "ts-jest": "^28.0.2",
     "ts-node": "^10.7.0",

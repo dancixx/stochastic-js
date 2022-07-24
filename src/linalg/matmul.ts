@@ -3,6 +3,8 @@
  * @param {number[][]} a matrix
  * @param {number[][]} b matix
  * @returns {number[][]}
+ * @memberof linalg
+ *
  * @description
  * Matrix multiplication of two matrices.
  */

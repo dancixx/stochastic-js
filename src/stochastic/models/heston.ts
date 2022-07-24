@@ -12,6 +12,10 @@ import {correlatedWieners} from '../noises/wiener';
  * @param {number} n
  * @param {number} T
  * @returns {Record<'dS' | 'dv' | 'S' | 'v', number[]>}
+ * @memberof stochastic
+ * @example
+ * const {dS, dv, S, v} = heston(0.04, 0.2, 0.04, 0.2, 100, 0.04, true, 100, 1);
+ *
  * @description
  * Heston model is a stochastic volatility model.
  * Default is the correlation between the price and the volatility is constant,
