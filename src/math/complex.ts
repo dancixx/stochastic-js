@@ -1,5 +1,6 @@
 import {Complex} from '../types';
 
+// TODO: types for this function
 const add = (a: Complex, b: Complex): Complex => {
   return [a[0] + b[0], a[1] + b[1]];
 };
