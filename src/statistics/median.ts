@@ -1,3 +1,5 @@
+import {Matrix, Axis, Vector} from '../types';
+
 /**
  *
  * @param {number[]} vector

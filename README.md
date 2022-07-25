@@ -28,16 +28,6 @@ npm i stochastic-js
 
 This is a totally new project. The modules will be come in the future as I have time for it or if there is any request.
 
-### Future plans
-
-- [ ] Add multiple normal distribution generator
-- [ ] Add different stochastic process, SDEs
-- [x] Add fractional process support
-- [ ] Add test statistics to estimate the paramters
-- [ ] Add Fast Fourier implementations
-- [ ] Add support for Lévy Process
-- [ ] Add support for Jump Diffusions
-
 ### Sponsoring
 
 This library can be very useful for anybody who wants to play with stochastic analysis or find data generators for machine learning projects. I plan to extend to a much more complex Math library with a lot of useful tools, but the main concept is still around financial mathematics. If you like this project you can give me a ⭐️.
