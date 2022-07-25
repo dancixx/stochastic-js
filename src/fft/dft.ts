@@ -21,7 +21,7 @@ const dft = (data: number[]): Complex[] => {
     for (let k = 0; k < N; k++) {
       const coeff: Complex = [
         Math.cos((2 * Math.PI * n * k) / N),
-        -Math.sin((-2 * Math.PI * n * k) / N),
+        -Math.sin((2 * Math.PI * n * k) / N),
       ];
 
       X[n] = add(X[n], multiply(coeff, [data[k], 0] as unknown as Complex));
@@ -32,3 +32,5 @@ const dft = (data: number[]): Complex[] => {
 };
 
 export default dft;
+
+console.log(dft([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
