@@ -1,8 +1,6 @@
-import {Matrix, Axis, Vector} from '../types';
-
 /**
  *
- * @param {Vector} vector
+ * @param {number[]} vector
  * @returns {number}
  * @memberof statistics
  * @example
@@ -17,8 +15,8 @@ const mean1D = (vector: number[]): number => {
 
 /**
  *
- * @param {Matrix} matrix
- * @param {Axis} axis
+ * @param {number[][]} matrix
+ * @param {0 | 1} axis
  * @returns {number | number[]}
  * @memberof statistics
  * @example
@@ -28,7 +26,7 @@ const mean1D = (vector: number[]): number => {
  * @description
  * Returns the mean of a matrix along an axis.
  */
-const mean2D = (matrix: Matrix, axis?: Axis): number | number[] => {
+const mean2D = (matrix: number[][], axis?: 0 | 1): number | number[] => {
   if (axis === 0) {
     return matrix.map(row => mean1D(row));
   } else if (axis === 1) {
@@ -40,8 +38,8 @@ const mean2D = (matrix: Matrix, axis?: Axis): number | number[] => {
 
 /**
  *
- * @param {Vector | Matrix} array
- * @param {Axis} axis
+ * @param {number[] | number[][]} array
+ * @param {0 | 1} axis
  * @returns {number | number[]}
  * @memberof statistics
  * @example
@@ -52,9 +50,12 @@ const mean2D = (matrix: Matrix, axis?: Axis): number | number[] => {
  * @description
  * Returns the mean of a vector or matrix along an axis.
  */
-const mean = (array: Vector | Matrix, axis?: Axis): number | number[] => {
+const mean = (
+  array: number[] | number[][],
+  axis?: 0 | 1,
+): number | number[] => {
   if (Array.isArray(array[0])) {
-    return mean2D(array as Matrix, axis);
+    return mean2D(array as number[][], axis);
   } else {
     return mean1D(array as number[]);
   }

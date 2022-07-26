@@ -1,5 +1,3 @@
-import {Matrix, Axis, Vector} from '../types';
-
 /**
  *
  * @param {number[]} vector
@@ -22,7 +20,7 @@ const median1D = (vector: number[]): number => {
 /**
  *
  * @param {number[][]} matrix
- * @param {Axis} axis
+ * @param {0 | 1} axis
  * @returns {number | number[]}
  * @memberof statistics
  * @example
@@ -32,7 +30,7 @@ const median1D = (vector: number[]): number => {
  * @description
  * Returns the median of a matrix along an axis.
  */
-const median2D = (matrix: Matrix, axis?: Axis): number | number[] => {
+const median2D = (matrix: number[][], axis?: 0 | 1): number | number[] => {
   if (axis === 0) {
     return matrix.map(row => median1D(row));
   } else if (axis === 1) {
@@ -44,8 +42,8 @@ const median2D = (matrix: Matrix, axis?: Axis): number | number[] => {
 
 /**
  *
- * @param {Vector | Matrix} values
- * @param {Axis} axis
+ * @param {number[] | number[][]} array
+ * @param {number[]} axis
  * @returns {number | number[]}
  * @memberof statistics
  * @example
@@ -56,11 +54,14 @@ const median2D = (matrix: Matrix, axis?: Axis): number | number[] => {
  * @description
  * Returns the median of a vector or matrix along an axis.
  */
-const median = (array: Vector | Matrix, axis?: Axis): number | number[] => {
+const median = (
+  array: number[] | number[][],
+  axis?: 0 | 1,
+): number | number[] => {
   if (Array.isArray(array[0])) {
-    return median2D(array as Matrix, axis);
+    return median2D(array as number[][], axis);
   } else {
-    return median1D(array as Vector);
+    return median1D(array as number[]);
   }
 };
 
