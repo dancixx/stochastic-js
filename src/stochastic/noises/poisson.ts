@@ -91,5 +91,3 @@ const compoundPoisson = (
 };
 
 export {possion, compoundPoisson};
-
-compoundPoisson(10, 1);

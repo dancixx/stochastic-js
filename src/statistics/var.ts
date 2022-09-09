@@ -7,7 +7,6 @@ const variance = (vector: number[]) => {
     (1 / vector.length) *
     (pow(vector, 2) as number[]).reduce((acc, value) => acc + value, 0);
 
-  console.log(firstMoment / vector.length, pow(vector, 2));
   return secondMoment - firstMoment ** 2;
 };
 
