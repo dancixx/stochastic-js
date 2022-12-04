@@ -57,7 +57,7 @@ const bates = (
     v[index + 1] = Math.max(...[v[index] + dv[index], 0]);
 
     dX[index] =
-      (r - lambda * k - 0.5 * v[index]) * dt +
+      (r - q * k - 0.5 * v[index]) * dt +
       Math.sqrt(v[index]) * dW1[index] +
       cPoisson[index];
     X[index + 1] = X[index] + dX[index];
