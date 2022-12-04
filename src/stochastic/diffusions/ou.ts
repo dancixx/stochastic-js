@@ -25,8 +25,8 @@ const ou = (
 ): Record<'dW' | 'dX' | 'W' | 'X', number[]> => {
   const {dW, W} = wiener(n, T);
   const dt = T / n;
-  let dX: number[] = new Array(n - 1).fill(0);
-  let X: number[] = new Array(n).fill(0);
+  const dX: number[] = new Array(n - 1).fill(0);
+  const X: number[] = new Array(n).fill(0);
 
   X[0] = X0;
 
@@ -65,8 +65,8 @@ const fou = (
 ): Record<'fgn' | 'fbm' | 'dX' | 'X', number[]> => {
   const {fgn, fbm} = fractionalWiener(n, T, H);
   const dt = T / n;
-  let dX: number[] = new Array(n - 1).fill(0);
-  let X: number[] = new Array(n).fill(0);
+  const dX: number[] = new Array(n - 1).fill(0);
+  const X: number[] = new Array(n).fill(0);
 
   X[0] = X0;
 

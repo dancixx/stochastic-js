@@ -23,8 +23,8 @@ const gbm = (
 ): Record<'dS' | 'dW' | 'S' | 'W', number[]> => {
   const {dW, W} = wiener(n, T);
   const dt = T / n;
-  let dS: number[] = new Array(n - 1).fill(0);
-  let S: number[] = new Array(n).fill(0);
+  const dS: number[] = new Array(n - 1).fill(0);
+  const S: number[] = new Array(n).fill(0);
 
   S[0] = S0;
 

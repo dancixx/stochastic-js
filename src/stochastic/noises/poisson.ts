@@ -25,9 +25,9 @@ const possion = (
     throw new Error('n must be positive');
   }
 
-  let times = new Array(n).fill(0);
-  let timesTotal: number[] = new Array(n + 1).fill(0);
-  let X: number[] = new Array(n + 1).fill(0);
+  const times = new Array(n).fill(0);
+  const timesTotal: number[] = new Array(n + 1).fill(0);
+  const X: number[] = new Array(n + 1).fill(0);
 
   timesTotal[0] = 0;
   X[0] = 0;
@@ -71,8 +71,8 @@ const compoundPoisson = (
 
   const {times, timesTotal, X: poissonProcess} = possion(n, lambda);
 
-  let X = new Array(poissonProcess.length + 1).fill(0);
-  let _jumps = new Array(poissonProcess.length + 1).fill(0);
+  const X = new Array(poissonProcess.length + 1).fill(0);
+  const _jumps = new Array(poissonProcess.length + 1).fill(0);
 
   X[0] = poissonProcess[0];
   _jumps[0] = 0;

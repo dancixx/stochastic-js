@@ -15,7 +15,7 @@ const choleskyDecomposition = (
     | 'cholesky-banachiewicz'
     | 'cholesky-crout' = 'cholesky-banachiewicz',
 ): number[][] => {
-  let L: number[][] = Array.from(Array(a.length), () =>
+  const L: number[][] = Array.from(Array(a.length), () =>
     Array.from(Array(a.length), () => 0),
   );
 

@@ -1,6 +1,6 @@
-import normal from '../distributions/normal';
-import {fou, ou} from '../diffusions/ou';
 import {jacobi} from '../diffusions';
+import {fou, ou} from '../diffusions/ou';
+import normal from '../distributions/normal';
 
 /**
  *
@@ -20,8 +20,8 @@ const wiener = (
   T: number = 1,
 ): Record<'dW' | 'W', number[]> => {
   const dt = T / n;
-  let dW: number[] = new Array(n - 1).fill(0);
-  let W: number[] = new Array(n).fill(0);
+  const dW: number[] = new Array(n - 1).fill(0);
+  const W: number[] = new Array(n).fill(0);
 
   for (let index = 0; index < n - 1; index++) {
     dW[index] = Math.sqrt(dt) * normal();
@@ -50,7 +50,7 @@ const brownianBridge = (
 ): Record<'B', number[]> => {
   const {W} = wiener(n, T);
   const dt = T / n;
-  let B: number[] = new Array(n).fill(0);
+  const B: number[] = new Array(n).fill(0);
 
   for (let index = 0; index < n - 1; index++) {
     B[index] = W[index] - ((dt * index) / T) * W[n - 1];
@@ -100,8 +100,8 @@ const correlatedWieners = (
 ): Record<'dW1' | 'dW2' | 'W1' | 'W2', number[]> => {
   const {dW: dW1, W: W1} = wiener(n, T);
   const {dW: dZ} = wiener(n, T);
-  let dW2: number[] = new Array(n - 1).fill(0);
-  let W2: number[] = new Array(n).fill(0);
+  const dW2: number[] = new Array(n - 1).fill(0);
+  const W2: number[] = new Array(n).fill(0);
 
   if (isConstant) {
     for (let index = 0; index < n - 1; index++) {

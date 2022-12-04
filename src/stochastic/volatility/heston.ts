@@ -11,6 +11,7 @@ import {correlatedWieners} from '../noises/wiener';
  * @param {boolean} isCorrelationConstant
  * @param {number} n
  * @param {number} T
+ * @param {number} rho
  * @returns {Record<'dS' | 'dv' | 'S' | 'v', number[]>}
  * @memberof stochastic
  * @example
@@ -36,13 +37,14 @@ const heston = (
   isCorrelationConstant: boolean = true,
   n: number = 100,
   T: number = 1,
+  rho: number = 0.05,
 ): Record<'dS' | 'dv' | 'S' | 'v', number[]> => {
-  const {dW1, dW2} = correlatedWieners(isCorrelationConstant);
+  const {dW1, dW2} = correlatedWieners(isCorrelationConstant, n, T, rho);
   const dt = T / n;
-  let dS: number[] = new Array(n - 1).fill(0);
-  let S: number[] = new Array(n).fill(0);
-  let dv: number[] = new Array(n - 1).fill(0);
-  let v: number[] = new Array(n).fill(0);
+  const dS: number[] = new Array(n - 1).fill(0);
+  const S: number[] = new Array(n).fill(0);
+  const dv: number[] = new Array(n - 1).fill(0);
+  const v: number[] = new Array(n).fill(0);
 
   S[0] = S0;
   v[0] = v0;

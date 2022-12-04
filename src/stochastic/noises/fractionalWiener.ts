@@ -1,5 +1,5 @@
-import normal from '../distributions/normal';
 import choleskyDecomposition from '../../linalg/cholesky';
+import normal from '../distributions/normal';
 
 /**
  *
@@ -35,7 +35,7 @@ const fractionalWiener = (
         2 * Math.abs(index) ** (2 * H) +
         Math.abs(index + 1) ** (2 * H));
 
-    let gamma: number[][] = Array.from(Array(n - 1), () =>
+    const gamma: number[][] = Array.from(Array(n - 1), () =>
       new Array(n - 1).fill(0),
     );
 
@@ -47,8 +47,8 @@ const fractionalWiener = (
 
     const cholesky = choleskyDecomposition(gamma);
 
-    let fgn: number[] = new Array(n - 1).fill(0);
-    let fbm: number[] = new Array(n).fill(0);
+    const fgn: number[] = new Array(n - 1).fill(0);
+    const fbm: number[] = new Array(n).fill(0);
 
     fbm[0] = 0;
 

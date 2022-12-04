@@ -24,8 +24,8 @@ const jacobi = (
 ): Record<'dW' | 'dX' | 'W' | 'X', number[]> => {
   const {dW, W} = wiener(n, T);
   const dt = T / n;
-  let dX: number[] = new Array(n - 1).fill(0);
-  let X: number[] = new Array(n).fill(0);
+  const dX: number[] = new Array(n - 1).fill(0);
+  const X: number[] = new Array(n).fill(0);
 
   X[0] = X0;
 
@@ -38,8 +38,5 @@ const jacobi = (
 
   return {dW, dX, W, X};
 };
-
-const data = jacobi(1, 1, 1);
-console.log(data);
 
 export default jacobi;
