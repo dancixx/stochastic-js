@@ -1,5 +1,14 @@
 import pow from '../math/pow';
 
+/**
+ *
+ * @param {number[]} vector
+ * @returns
+ *
+ * @description
+ * Variance of a vector.
+ */
+
 const variance = (vector: number[]) => {
   const firstMoment =
     (1 / vector.length) * vector.reduce((acc, value) => acc + value, 0);

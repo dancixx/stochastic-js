@@ -1,3 +1,14 @@
+/**
+ *
+ * @param {number | number[] | number[][]} x
+ * @param {number} y
+ * @memberof math
+ * @returns number | number[] | number[][]
+ *
+ * @description
+ * Power of a number or a vector.
+ */
+
 const pow = (
   x: number | number[] | number[][],
   y: number,
