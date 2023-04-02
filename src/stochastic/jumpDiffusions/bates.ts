@@ -2,7 +2,6 @@ import {normal} from '../distributions';
 import {compoundPoisson, correlatedWieners} from '../noises';
 
 /**
- *
  * @param {number} v0
  * @param {number} S0
  * @param {number} rho
