@@ -19,6 +19,8 @@ import {compoundPoisson, correlatedWieners} from '../noises';
  * @param {boolean} isCorrelationConstant
  * @returns {Record<'dv' | 'dX' | 'v' | 'X', number[]>}
  * @description
+ * Bates jump diffusion model.
+ * X_t = (r - lambda*k - 0.5*v_t) * t + sqrt(v_t) * W_t + Z_t
  */
 const bates = (
   v0: number = 0.5,
@@ -30,7 +32,6 @@ const bates = (
   theta: number,
   eta: number,
   r: number,
-  q: number,
   k: number,
   lambda: number,
   isCorrelationConstant: boolean = true,
@@ -57,7 +58,7 @@ const bates = (
     v[index + 1] = Math.max(...[v[index] + dv[index], 0]);
 
     dX[index] =
-      (r - q * k - 0.5 * v[index]) * dt +
+      (r - lambda * k - 0.5 * v[index]) * dt +
       Math.sqrt(v[index]) * dW1[index] +
       cPoisson[index];
     X[index + 1] = X[index] + dX[index];
@@ -65,3 +66,5 @@ const bates = (
 
   return {dv, dX, v, X};
 };
+
+export default bates;
